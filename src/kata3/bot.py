@@ -6,7 +6,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
-logger = logging.getLogger(_name_)
+logger = logging.getLogger(__name__)
 
 
 # Definimos algunas funciones para los comandos. Estos generalmente toman los dos argumentos update y context
@@ -60,5 +60,5 @@ def main():
     updater.idle()
 
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     main()
