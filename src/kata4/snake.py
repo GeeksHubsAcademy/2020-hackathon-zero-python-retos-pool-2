@@ -13,7 +13,16 @@ class Snake():
 
     # Manejo del pressed [KEYDOWN] de las teclas [K_RIGHT - K_LEFT - K_UP -K_DOWN ]
     def controller(self, event, pygame):
-        return ""
+        if (event.key == pygame.K_UP):
+                self.change = "UP"
+        if (event.key == pygame.K_DOWN):
+                self.change = "DOWN"
+        if (event.key == pygame.K_LEFT):
+                self.change = "LEFT"
+        if (event.key == pygame.K_RIGHT):
+                self.change = "RIGHT"
+
+
         
     # Controla el cambio de  las direcciones
     # Orientaciones
@@ -21,7 +30,18 @@ class Snake():
     # Horizontal    -> Movimientos [UP - DOWN]
     # Incremento del movimiento 
     def changeDirection(self):
-        self.body.insert(0, list(self.position))
+        global position_o
+
+        self.direction = self.change;
+        if self.change == "UP":
+            self.position[1] = self.position[1]-10 
+        if self.change == "DOWN":
+            self.position[1] = self.position[1]
+        if self.change == "LEFT":
+            self.position[0] = self.position[0]-10 
+        if self.change == "RIGHT":
+            self.position[0] = self.position[0]
+        #self.body.insert(0, list(self.position))
 
 class Game():
     run = True
