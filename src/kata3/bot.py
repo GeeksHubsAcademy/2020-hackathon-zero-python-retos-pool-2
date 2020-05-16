@@ -12,20 +12,31 @@ logger = logging.getLogger(__name__)
 # Definimos algunas funciones para los comandos. Estos generalmente toman los dos argumentos update y context
 def start(update, context):
     """Envia un mensaje cuando se emita el comando /start."""
-    return ""
+    mensaje = "Hola, Geeks"
+    update.message.reply_text(mensaje)
+    return mensaje
 
 def help(update, context):
     """Envia un mensaje cuando se emita el comando /help."""
-    return ""
+    mensaje = "Ayudame!"
+    update.message.reply_text(mensaje)
+    return mensaje
 
 def mayus(update, context):
-        #
-        return ""
+    #context.args[1]
+    mensaje = context.args[0]
+    mensaje = mensaje.upper()
+    update.message.reply_text(mensaje)
+    return mensaje
 
 def alreves(update, context):
     """Repite el mensaje del usuario."""
     #
-    return ""
+    mensaje = context.args[0]
+    txt = mensaje[::-1]
+    update.message.reply_text(txt)
+    print(txt)
+    return "txt"
 
 def error(update, context):
     """Envia los errores por consola"""
@@ -34,15 +45,20 @@ def error(update, context):
 def main():
     """Inicio del Bot"""
     #Colocamos el Token creado por FatherBot
-    updater = Updater("", use_context=True)
+    updater = Updater("871576518:AAEL_8TH16g29zCn4kYheuQC3p089PwYobw", use_context=True)
 
     # Es el Registro de Comandos a través del dispartcher
-    dp = #
+    dp = updater.dispatcher
 
     # Añadimos a la lista de Registro todos los comandos con su función [start - help - mayus]
     #
     #
     #
+
+    updater.dispatcher.add_handler(CommandHandler("start", start))
+    updater.dispatcher.add_handler(CommandHandler("mayus", mayus))
+    updater.dispatcher.add_handler(CommandHandler("help", help))
+    updater.dispatcher.add_handler(CommandHandler(alreves))
 
     # Este comando es un Trigger que se lanza cuando no hay comandos [alreves]
     #

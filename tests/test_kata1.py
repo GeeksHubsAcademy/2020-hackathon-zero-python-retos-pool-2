@@ -31,4 +31,3 @@ def test_papel_vs_piedra():
 
 def test_tijeras_vs_papel():
 	assert(quienGana('Tijeras', 'Papel') == 'Ganaste!')
-    
