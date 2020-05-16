@@ -10,4 +10,4 @@ def RandomPasswordGenerator(passLen=10):
             contra = random.choice(caracteres)
         else:
             contra = contra + random.choice(caracteres)
-    return contra
+    return contragit
