@@ -25,7 +25,7 @@ class Snake():
 
 class Game():
     run = True
-    food_pos = 0
+    food_pos = [0, 0]
     score = 0
 
     def __init__(self):
@@ -37,36 +37,24 @@ class Game():
     
     # Posición aleatorio entre el ranto [0,49] * 10  
     def food_spawn(self):
-        self.food_pos = 0
+        frutita = [random.randint(0,49)*10, random.randint(0,49)*10]
+        self.food_pos = frutita;
 
     # Si colisionas con una fruta, sumas 1
     # Sino decrementas en 1 el body del snake
     def eat(self, snake):
-        #
-        #    
-        #    
-        #
-        #  
-        return
+        if ((self.food_pos[0] == snake.position[0]) and (self.food_pos[1] == snake.position[1])):
+            self.score = 1
 
     # Mensajes de salida cuando el snake muere
     # Posición snake[0] >= 500 ó snake[0] <= 0                  -> Muere
     # Posición snake[1] >= 500 ó snake[1] <= 0                  -> Muere
     # Posición del snake choca con sigo mismo menos la cabeza   -> Muere 
     def dead(self, snake):
-        #
-        #
-        #
-        
-        #
-        #
-        #
-        
-        #
-        #
-        #
-        return
-        
+        if ((snake.position[0] >= 500) or (snake.position[0] <= 0)):
+            self.run = False
+        if ((snake.position[1] >= 500) or (snake.position[1] <= 0)):
+            self.run = False        
             
 # Entry Point
 def main():
