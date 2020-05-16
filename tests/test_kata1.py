@@ -1,6 +1,6 @@
 import pytest
 
-from kata1.rps import quienGana
+from src.kata1.rps import quienGana
 
 def test_no_sensible_minusculas():
     assert(quienGana('PiEdRa', 'PaPeL') == 'Perdiste!')

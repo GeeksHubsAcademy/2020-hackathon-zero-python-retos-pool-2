@@ -7,20 +7,20 @@ options = ["Piedra", "Papel", "Tijeras"]
 #'Ganaste!'
 #'Perdiste!'
 def quienGana(player, ai):
-    if player == ai:
+    if player.lower() == ai.lower():
         return "Empate!"
-    elif player==1:
-        if ai == 2:
+    elif player.lower()=="piedra":
+        if ai.lower() == "papel":
             return "Perdiste!"
         else:
             return "Ganaste!"
-    elif player==2:
-        if ai == 1:
-            return "Perdiste!"
-        else:
+    elif player.lower()=="papel":
+        if ai.lower() == "piedra":
             return "Ganaste!"
-    elif player==3:
-        if ai == 1:
+        else:
+            return "Perdiste!"
+    elif player.lower()=="tijeras":
+        if ai.lower() == "piedra":
             return "Perdiste!"
         else:
             return "Ganaste!"
@@ -43,11 +43,12 @@ def Game():
     #
     #
     player = int(opt)
-    ai = randint(1,3)
-    print("Opción elegida por tí: " + options[player])
+    ai = randint(0,2)
+
+    print("Opción elegida por tí: " + options[player-1])
     print("Opción elegida por la maquina: " + options[ai])
     
-    winner = quienGana(player, ai)
+    winner = quienGana(options[player-1], options[ai])
 
     print(winner)
 
