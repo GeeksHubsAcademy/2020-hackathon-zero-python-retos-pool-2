@@ -1,18 +1,56 @@
 import pygame, sys, time, random
 from pygame.locals import *
 
-#pygame.init()
-#play_surface = pygame.display.set_mode((500, 500))
-#fps = pygame.time.Clock()
+pygame.init()
+play_surface = pygame.display.set_mode((500, 500))
+fps = pygame.time.Clock()
 
 class Snake():
     position = [100,50]
     body = [[100,50], [90,50],[80,50]]
     direction = "RIGHT"
     change = direction
+    speed = 0
 
     # Manejo del pressed [KEYDOWN] de las teclas [K_RIGHT - K_LEFT - K_UP -K_DOWN ]
     def controller(self, event, pygame):
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
+                    player_speed -= 6
+                if event.key == pygame.K_DOWN:
+                    player_speed += 6
+                if event.key == pygame.K_RIGHT:
+                    player_speed -= 6
+                if event.key == pygame.K_DOWN:
+                    player_speed -= 6
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_UP:
+                    player_speed += 6
+                if event.key == pygame.K_DOWN:
+                    player_speed -= 6
+                if event.key == pygame.K_RIGHT:
+                    player_speed -= 6
+                if event.key == pygame.K_DOWN:
+                    player_speed -= 6
+            if event.type == pygame.KEYRIGHT:
+                if event.key == pygame.K_UP:
+                    player_speed -= 6
+                if event.key == pygame.K_DOWN:
+                    player_speed -= 6
+                if event.key == pygame.K_RIGHT:
+                    player_speed += 6
+                if event.key == pygame.K_DOWN:
+                    player_speed -= 6
+            if event.type == pygame.KEYLEFT:
+                if event.key == pygame.K_UP:
+                    player_speed -= 6
+                if event.key == pygame.K_DOWN:
+                    player_speed -= 6
+                if event.key == pygame.K_RIGHT:
+                    player_speed -= 6
+                if event.key == pygame.K_DOWN:
+                    player_speed += 6 
         
     # Controla el cambio de  las direcciones
     # Orientaciones
@@ -50,12 +88,23 @@ class Game():
 
     # función de salida
     def exit(self, event, pygame):
-        #
-        #
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit
     
     # Posición aleatorio entre el ranto [0,49] * 10  
     def food_spawn(self):
         self.food_pos = 0
+
+
+    # Mensajes de salida cuando el snake muere
+    # Posición snake[0] >= 500 ó snake[0] <= 0                  -> Muere
+    # Posición snake[1] >= 500 ó snake[1] <= 0                  -> Muere
+    # Posición del snake choca con sigo mismo menos la cabeza   -> Muere 
+    def dead(snake):
+        pygame.quit()
+        sys.exit
+
 
     # Si colisionas con una fruta, sumas 1
     # Sino decrementas en 1 el body del snake
@@ -66,31 +115,14 @@ class Game():
         #
         #  
 
-    # Mensajes de salida cuando el snake muere
-    # Posición snake[0] >= 500 ó snake[0] <= 0                  -> Muere
-    # Posición snake[1] >= 500 ó snake[1] <= 0                  -> Muere
-    # Posición del snake choca con sigo mismo menos la cabeza   -> Muere 
-    def dead(self, snake):
-        #
-        #
-        #
-        
-        #
-        #
-        #
-        
-        #
-        #
-        #
-        
             
 # Entry Point
 def main():
     # Descomentar para lanzar el juego en local
     # Comentar para validar con el oráculo
-    # pygame.init()
-    # play_surface = pygame.display.set_mode((500, 500))
-    # fps = pygame.time.Clock()
+    pygame.init()
+    play_surface = pygame.display.set_mode((500, 500))
+    fps = pygame.time.Clock()
 
     snake = Snake()
     game = Game()
@@ -121,5 +153,5 @@ def main():
 # Comienza la aventura!!!!
 # Descomentar para lanzar el juego en local
 # Comentar para validar con el oráculo
-# main()
-# pygame.quit()
+main()
+pygame.quit()
