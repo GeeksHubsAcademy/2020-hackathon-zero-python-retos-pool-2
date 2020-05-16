@@ -13,6 +13,7 @@ class Snake():
 
     # Manejo del pressed [KEYDOWN] de las teclas [K_RIGHT - K_LEFT - K_UP -K_DOWN ]
     def controller(self, event, pygame):
+        return ""
         
     # Controla el cambio de  las direcciones
     # Orientaciones
@@ -20,24 +21,6 @@ class Snake():
     # Horizontal    -> Movimientos [UP - DOWN]
     # Incremento del movimiento 
     def changeDirection(self):
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-        #
-
         self.body.insert(0, list(self.position))
 
 class Game():
@@ -50,8 +33,7 @@ class Game():
 
     # función de salida
     def exit(self, event, pygame):
-        #
-        #
+        return
     
     # Posición aleatorio entre el ranto [0,49] * 10  
     def food_spawn(self):
@@ -65,6 +47,7 @@ class Game():
         #    
         #
         #  
+        return
 
     # Mensajes de salida cuando el snake muere
     # Posición snake[0] >= 500 ó snake[0] <= 0                  -> Muere
@@ -82,6 +65,7 @@ class Game():
         #
         #
         #
+        return
         
             
 # Entry Point

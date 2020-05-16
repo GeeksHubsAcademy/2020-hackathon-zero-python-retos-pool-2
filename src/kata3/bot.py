@@ -37,7 +37,7 @@ def main():
     updater = Updater("", use_context=True)
 
     # Es el Registro de Comandos a través del dispartcher
-    dp = #
+    #dp = #
 
     # Añadimos a la lista de Registro todos los comandos con su función [start - help - mayus]
     #
