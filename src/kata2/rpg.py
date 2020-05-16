@@ -11,7 +11,3 @@ def RandomPasswordGenerator(passLen=10):
         else:
             contra = contra + random.choice(caracteres)
     return contra
-
-longitud = int(input("longitud contraseña a crear: "))
-contra = RandomPasswordGenerator(longitud)
-print(contra)
