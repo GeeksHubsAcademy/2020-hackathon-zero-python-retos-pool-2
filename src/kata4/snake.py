@@ -36,11 +36,11 @@ class Snake():
         if self.change == "UP":
             self.position[1] = self.position[1]-10 
         if self.change == "DOWN":
-            self.position[1] = self.position[1]
+            self.position[1] = self.position[1]+10
         if self.change == "LEFT":
             self.position[0] = self.position[0]-10 
         if self.change == "RIGHT":
-            self.position[0] = self.position[0]
+            self.position[0] = self.position[0]+10
         #self.body.insert(0, list(self.position))
 
 class Game():
