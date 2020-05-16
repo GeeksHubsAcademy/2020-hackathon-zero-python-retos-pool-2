@@ -10,5 +10,5 @@ def RandomPasswordGenerator(passLen=10):
     password = password.join([choice(valores) for i in range(passLen)])
     return password
 
-
-RandomPasswordGenerator()
+if __name__ == '__main__':
+    RandomPasswordGenerator()

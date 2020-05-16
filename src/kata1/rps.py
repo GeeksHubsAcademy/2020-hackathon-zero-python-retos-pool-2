@@ -44,13 +44,16 @@ def Game():
     #
     player = int(opt)
     ai = randint(0,2)
+    if validacion:
 
-    print("Opción elegida por tí: " + options[player-1])
-    print("Opción elegida por la maquina: " + options[ai])
+        print("Opción elegida por tí: " + options[player-1])
+        print("Opción elegida por la maquina: " + options[ai])
     
-    winner = quienGana(options[player-1], options[ai])
+        winner = quienGana(options[player-1], options[ai])
+        print(winner)
+    else:
+        print("Valor invalido, un saludo")
 
-    print(winner)
-
-
-Game()
+        
+if __name__ == '__main__':
+    Game()
